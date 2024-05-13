@@ -7,27 +7,27 @@ axios.defaults.withCredentials = true
 
 // 添加请求拦截器
 axios.interceptors.request.use(
-    (config: AxiosRequestConfig | any) => {
-      // 避免浏览器对请求进行缓存
-      config.params = {
-        ...config.params,
-        t: Date.now(),
-      }
-      return config
-    },
-    function (error) {
-      return Promise.reject(error)
-    },
+  (config: AxiosRequestConfig | any) => {
+    // 避免浏览器对请求进行缓存
+    config.params = {
+      ...config.params,
+      t: Date.now(),
+    }
+    return config
+  },
+  function (error) {
+    return Promise.reject(error)
+  },
 )
 
 // 添加响应拦截器
 axios.interceptors.response.use(
-    (response) => {
-      return response
-    },
-    function (error) {
-      return Promise.reject(error)
-    },
+  (response) => {
+    return response
+  },
+  function (error) {
+    return Promise.reject(error)
+  },
 )
 
 interface ResultType<T> {
@@ -55,67 +55,67 @@ const http: Http = {
   get(url, params) {
     return new Promise((resolve, reject) => {
       axios
-          .get(url, { params })
-          .then((res) => {
-            resolve(res.data)
-          })
-          .catch((err) => {
-            reject(err.data)
-          })
+        .get(url, { params })
+        .then((res) => {
+          resolve(res.data)
+        })
+        .catch((err) => {
+          reject(err.data)
+        })
     })
   },
 
   post(url, params) {
     return new Promise((resolve, reject) => {
       axios
-          .post(url, JSON.stringify(params))
-          .then((res) => {
-            resolve(res.data)
-          })
-          .catch((err) => {
-            reject(err.data)
-          })
+        .post(url, JSON.stringify(params))
+        .then((res) => {
+          resolve(res.data)
+        })
+        .catch((err) => {
+          reject(err.data)
+        })
     })
   },
 
   put(url, params) {
     return new Promise((resolve, reject) => {
       axios
-          .put(url, JSON.stringify(params))
-          .then((res) => {
-            resolve(res.data)
-          })
-          .catch((err) => {
-            reject(err.data)
-          })
+        .put(url, JSON.stringify(params))
+        .then((res) => {
+          resolve(res.data)
+        })
+        .catch((err) => {
+          reject(err.data)
+        })
     })
   },
 
   delete(url, params) {
     return new Promise((resolve, reject) => {
       axios
-          .delete(url, { params })
-          .then((res) => {
-            resolve(res.data)
-          })
-          .catch((err) => {
-            reject(err.data)
-          })
+        .delete(url, { params })
+        .then((res) => {
+          resolve(res.data)
+        })
+        .catch((err) => {
+          reject(err.data)
+        })
     })
   },
 
   upload(url, file) {
     return new Promise((resolve, reject) => {
       axios
-          .post(url, file, {
-            headers: { 'Content-Type': 'multipart/form-data' },
-          })
-          .then((res) => {
-            resolve(res.data)
-          })
-          .catch((err) => {
-            reject(err.data)
-          })
+        .post(url, file, {
+          headers: { 'Content-Type': 'multipart/form-data' },
+        })
+        .then((res) => {
+          resolve(res.data)
+        })
+        .catch((err) => {
+          reject(err.data)
+        })
     })
   },
 
