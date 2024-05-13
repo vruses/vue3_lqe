@@ -11,4 +11,10 @@ const app = createApp(App)
 app.use(ElementPlus, {
   locale: zhCn,
 })
+// 引入自定义插件：包含了项目全局组件
+import globalComponent from '@/components'
+// 安装自定义插件
+app.use(globalComponent)
+// 引入全局样式
+import '@/styles/index.scss'
 app.mount('#app')
