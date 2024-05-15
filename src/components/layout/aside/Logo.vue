@@ -1,0 +1,25 @@
+<template>
+  <div>
+    <img src="../../../../public/vite.svg" alt="logo" />
+    <span v-if="!useSettingStore().fold">v3管理平台</span>
+  </div>
+</template>
+
+<script setup lang="ts">
+import useSettingStore from '@/store/type/settings'
+</script>
+
+<style scoped lang="scss">
+div {
+  font-size: large;
+  display: flex;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  background: var(--el-color-primary-light-9);
+  color: var(--el-color-primary);
+  span {
+    white-space: nowrap;
+  }
+}
+</style>
