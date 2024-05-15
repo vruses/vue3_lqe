@@ -30,7 +30,7 @@ axios.interceptors.response.use(
   },
 )
 
-interface ResultType<T> {
+export interface ResultType<T> {
   code: number
   data?: T
   msg: string
