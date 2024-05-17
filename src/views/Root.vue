@@ -32,6 +32,9 @@ import useSettingStore from '@/store/type/settings'
   .mainContainer {
     .el-header {
       height: 70px;
+      //background-color: #ecf5ff;
+    }
+    .el-main {
     }
   }
 }

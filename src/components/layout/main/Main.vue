@@ -1,7 +1,7 @@
 <template>
   <router-view v-slot="{ Component }">
-    <!--组件过渡-->
-    <transition name="fade" mode="in-out">
+    <!--组件过渡，transition只接受一个根标签，out-in模式下注释也算根标签-->
+    <transition name="fade" mode="out-in">
       <component :is="Component" v-if="isRefresh" />
     </transition>
   </router-view>
@@ -27,10 +27,10 @@ watch(
 
 <style scoped>
 .fade-enter-active {
-  transition: all 0.7s ease-out;
+  transition: all 0.5s ease-out;
 }
 .fade-leave-active {
-  transition: all 0.8s ease-in;
+  transition: all 0.6s ease-in;
 }
 
 .fade-enter-from,

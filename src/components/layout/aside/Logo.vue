@@ -1,7 +1,7 @@
 <template>
   <div>
     <img src="../../../../public/vite.svg" alt="logo" />
-    <span v-if="!useSettingStore().fold">v3管理平台</span>
+    <span v-if="!useSettingStore().fold">土地质量评价系统</span>
   </div>
 </template>
 

@@ -16,7 +16,8 @@ import { constRoutes } from '@/router/constRoutes'
 import { useRouter } from 'vue-router'
 import useSettingStore from '@/store/type/settings'
 //不用props方式传值，递归组件报错
-const routeList = constRoutes
+const route = constRoutes.find((route) => route.name === 'root')
+const routeList = route['children']
 //sub-menu展开的事件回调
 const router = useRouter()
 function handleSubMenuOpen(menuIndex) {
