@@ -28,8 +28,7 @@ import View from 'ol/View'
 import TileLayer from 'ol/layer/Tile'
 import { onMounted, ref } from 'vue'
 import { transform } from 'ol/proj'
-import { defaults as defaultControls} from 'ol/control';
-
+import { defaults as defaultControls } from 'ol/control'
 
 import { mapList, mapLabels } from '@/views/map/mapList'
 //target、layers、view=>map
@@ -65,7 +64,7 @@ onMounted(() => {
       zoom: false,
       rotate: false,
       attribution: false,
-    })
+    }),
   })
 })
 // 操作图层来驱动视图的更新
