@@ -22,10 +22,13 @@
     "element-plus": "^2.6.3",
     "nprogress": "^0.2.0",
     "ol": "^7.5.0",
+    "ol-contextmenu": "^5.4.0",
+    "ol-ext": "^4.0.18",
     "pinia": "^2.1.7",
     "pinia-plugin-persistedstate": "^3.2.1",
     "vue": "^3.4.21",
-    "vue-router": "^4.3.2"
+    "vue-router": "^4.3.2",
+    "vue3-openlayers": "^10.0.0"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.24.1",

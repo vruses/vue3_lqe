@@ -21,7 +21,7 @@ import useSettingStore from '@/store/type/settings'
 .el-container {
   width: 100vw;
   height: 100vh;
-  background-color: white;
+  background-color: rgb(240,242,245);
   .el-aside {
     width: 200px;
     transition: all 0.3s ease;
@@ -32,7 +32,7 @@ import useSettingStore from '@/store/type/settings'
   .mainContainer {
     .el-header {
       height: 70px;
-      //background-color: #ecf5ff;
+      background-color: white;
     }
     .el-main {
     }

@@ -45,22 +45,32 @@ export const constRoutes = [
         },
       },
       {
-        path: '/auth',
-        name: 'auth',
+        path: '/lq',
+        name: 'lq',
         meta: {
-          title: '权限管理',
-          menu: 'auth',
-          icon: 'Lock',
+          title: '土地质量评价',
+          menu: 'landQuality',
+          icon: 'MapLocation',
         },
         children: [
           {
-            path: '/auth/ack',
-            component: () => import('@/views/userAuth/User.vue'),
-            name: 'userAuth',
+            path: '/lq/map',
+            component: () => import('@/views/map/landQuality.vue'),
+            name: 'landQualityMap',
             meta: {
-              title: '用户权限',
-              menu: 'ack',
-              icon: 'User',
+              title: '地质图',
+              menu: 'landQualityMap',
+              icon: 'ZoomIn',
+            },
+          },
+          {
+            path: '/lq/editMap',
+            component: () => import('@/views/map/edit.vue'),
+            name: 'editMap',
+            meta: {
+              title: '地图编辑',
+              menu: 'editMap',
+              icon: 'EditPen',
             },
           },
         ],
