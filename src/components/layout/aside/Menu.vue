@@ -2,7 +2,6 @@
   <el-menu
     router
     @open="handleSubMenuOpen"
-    background-color="#ECF5FF"
     :collapse="useSettingStore().fold"
     :collapse-transition="false"
   >
@@ -26,4 +25,9 @@ function handleSubMenuOpen(menuIndex) {
 }
 </script>
 
-<style scoped></style>
+<style scoped lang="scss">
+@import '@/styles/variable.scss';
+.el-menu {
+  background-color: $asideColor;
+}
+</style>

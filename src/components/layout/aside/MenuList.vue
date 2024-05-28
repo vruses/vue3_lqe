@@ -35,4 +35,9 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped lang="scss">
+@import '@/styles/variable.scss';
+.el-menu-item {
+  background-color: $asideColor;
+}
+</style>
