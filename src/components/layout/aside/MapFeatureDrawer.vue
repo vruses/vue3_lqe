@@ -45,7 +45,7 @@
       <div class="demo-drawer__footer">
         <el-button @click="cancelForm">取消</el-button>
         <el-button type="primary" :loading="loading" @click.prevent="onClick">
-          {{ loading ? '提交中 ...' : '提交' }}
+          {{ loading ? '保存中 ...' : '保存' }}
         </el-button>
       </div>
     </div>

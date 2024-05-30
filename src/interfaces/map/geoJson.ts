@@ -1,4 +1,5 @@
 import { Feature } from '@/interfaces/map/features'
+import { Response } from '@/interfaces/map/response'
 
 export interface GeoJson {
   name: string
@@ -7,3 +8,5 @@ export interface GeoJson {
   criteria: string
   feature: Feature
 }
+export type PostFeatures = (geoJson: GeoJson) => Response
+export type GetFeatures = () => Response

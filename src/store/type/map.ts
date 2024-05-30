@@ -14,16 +14,14 @@ const useMapStore = defineStore('Map', {
     toGeoJson(geoJsonsLike: Omit<GeoJson, 'feature'> & { features: Features }) {
       // {name,degree,region,criteria,[{type,{gid,type,coords}},]}
       // =>{name,degree,region,criteria,{type,{gid,type,coords}}}
-      const geoJsons: GeoJson[] = []
       console.log(geoJsonsLike)
       const { name, degree, region, criteria } = geoJsonsLike
       //存入geoJson
       for (let feature of geoJsonsLike.features) {
         console.log('setFeature')
         // this.setFeature(feature)
-        geoJsons.push({ name, degree, region, criteria, feature })
+        this.geoJsons.push({ name, degree, region, criteria, feature })
       }
-      this.setGeoJsons(geoJsons)
     },
     getFeature() {
       let features: Features = []

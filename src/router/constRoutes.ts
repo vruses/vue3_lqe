@@ -64,8 +64,8 @@ export const constRoutes = [
             },
           },
           {
-            path: '/lq/editMap',
-            component: () => import('@/views/map/edit.vue'),
+            path: '/lq/edit',
+            component: () => import('@/views/map/featureEdit.vue'),
             name: 'editMap',
             meta: {
               title: '地图编辑',
@@ -75,7 +75,25 @@ export const constRoutes = [
           },
         ],
       },
+      {
+        path: '/manage',
+        component: () => import('@/views/manage/index.vue'),
+        name: 'manage',
+        meta: {
+          title: '标记管理',
+          menu: 'manage',
+          icon: 'Files',
+        },
+      },
     ],
+  },
+  {
+    path: '/user/feature',
+    component: () => import('@/views/user/mapFeatureDisplay.vue'),
+    name: 'user',
+    meta: {
+      title: '数据展示',
+    },
   },
   {
     //匹配任意字符零次或多次

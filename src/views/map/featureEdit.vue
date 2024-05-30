@@ -117,8 +117,8 @@ const geoJsonObject = {
       name: 'EPSG:4326',
     },
   },
-  features: useMapStore().getFeature(),
-  // features: [],
+  // features: useMapStore().getFeature(),
+  features: [],
 }
 
 const zones = ref([])
