@@ -1,5 +1,6 @@
 <template>
   <div style="width: 100%; height: 100%">
+    <MapFeatureDrawer :features="features"></MapFeatureDrawer>
     <form>
       <fieldset style="display: flex; align-items: center">
         <el-select
@@ -15,12 +16,10 @@
             :value="item.value"
           />
         </el-select>
-        <!--       <label for="checkbox">绘画模式</label>-->
-        <!--       <input type="checkbox" id="checkbox" v-model="drawEnable" />-->
         <el-checkbox-button v-model="drawEnabled">
           <span>绘画模式</span>
         </el-checkbox-button>
-        <el-button type="primary" @click="saveGeometry">保存标记</el-button>
+        <el-button type="primary" @click="saveGeometry">保存绘画</el-button>
       </fieldset>
     </form>
 
@@ -83,10 +82,13 @@
 </template>
 
 <script setup lang="ts">
-import { inject, ref } from 'vue'
+import { inject, reactive, ref } from 'vue'
 import { Collection } from 'ol'
 import { GeoJSON } from 'ol/format'
 import useMapStore from '@/store/type/map.ts'
+import MapFeatureDrawer from '@/components/layout/aside/MapFeatureDrawer.vue'
+import useSettingStore from '@/store/type/settings'
+import { Feature, Features } from '@/interfaces/map/features'
 
 const center = ref([112, 28])
 const projection = ref('EPSG:4326')
@@ -115,8 +117,8 @@ const geoJsonObject = {
       name: 'EPSG:4326',
     },
   },
-  // features: useMapStore().features,
-  features: [],
+  features: useMapStore().getFeature(),
+  // features: [],
 }
 
 const zones = ref([])
@@ -139,19 +141,43 @@ const drawEnd = (event) => {
   modifyEnabled.value = true
   drawEnabled.value = false
 }
-
+//保存几何图形
+let features: Features = reactive([
+  {
+    type: 'Feature',
+    geometry: { gid: '1', type: 'p', coordinates: [[[1, 2]]] },
+  },
+])
 const saveGeometry = () => {
+  //清空图形数组，重新获取一次几何图形,这样单次保存不用判断图形是否重复
+  features.length = 0
+  // features = reactive([{type:"Feature",geometry:{gid:'1',type:'p',coordinates:[[[1,2]]]}}])
+  useSettingStore().setDrawerFoldState(true)
   console.log('save')
-  //  拿到zones里的坐标和图形type，保存到mapStore
-  //  弹窗输入name(确保标记唯一),程度，地区，评判标准
-  let type = 'Feature'
+  console.log(zones.value)
+  //  拿到zones里的坐标和图形type和uid传给子组件
+  //  弹窗输入name(uid确保标记唯一),程度，地区，评判标准
   for (let v of zones.value) {
-    //将feature存入mapStore
+    //将feature传给mapFeatureDrawer子组件
+    let gid: string = v.getGeometry().ol_uid
     let type: string = v.getGeometry().constructor.name.split('_').join('')
     let coordinates: [number, number][][] = [
       flattenToPairs(v.getGeometry().flatCoordinates),
     ]
-    useMapStore().setFeature({ type, coordinates })
+    features.push({ type: 'Feature', geometry: { gid, type, coordinates } })
+    /*  //为空或者gid未重复则push
+    if(geometries.length===0){
+      geometries.push({gid,type,coordinates})
+    }else {
+      for(let g of geometries){
+        //不相同push
+        if(g.gid!==gid){
+          geometries.push({gid,type,coordinates})
+        }
+      }
+    }*/
+    //
+    // useMapStore().setFeature({ type, coordinates })
   }
 }
 //还原扁平化的coordinates

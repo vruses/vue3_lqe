@@ -1,8 +1,9 @@
-import { Features } from '@/interfaces/map/features'
+import { Feature } from '@/interfaces/map/features'
 
 export interface GeoJson {
+  name: string
   degree: string
   region: string
   criteria: string
-  features: Features
+  feature: Feature
 }

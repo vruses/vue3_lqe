@@ -3,6 +3,7 @@ export type Features = Feature[]
 export interface Feature {
   type: string
   geometry: {
+    gid: string
     type: string
     coordinates: Coordinate[][]
   }
