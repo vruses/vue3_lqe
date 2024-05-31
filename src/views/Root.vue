@@ -14,6 +14,7 @@
 import Aside from '@/components/layout/aside/Aside.vue'
 import Header from '@/components/layout/header/Header.vue'
 import Main from '@/components/layout/main/Main.vue'
+import useSettingStore from '@/store/type/settings'
 </script>
 
 <style scoped lang="scss">
