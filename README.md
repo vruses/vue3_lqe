@@ -1,9 +1,41 @@
-# Vue 3 + TypeScript + Vite
+## 0. 运行
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+> 1. npm install
+> 2. npm run dev
 
-## Recommended Setup
+## 1. 效果展示
 
-- [VS Code](https://code.visualstudio.com/) + [Vue - Official](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (previously Volar) and disable Vetur
+**系统登陆**
+![login](https://i0.hdslb.com/bfs/article/83cc3977cb3b329df05fb8a41709355d700756870.png@1e_1c.webp)
 
-- Use [vue-tsc](https://github.com/vuejs/language-tools/tree/master/packages/tsc) for performing the same type checking from the command line, or for generating d.ts files for SFCs.
+**首页**
+![home](https://i0.hdslb.com/bfs/article/83cc3977cb3b329df05fb8a41709355d700756870.png@1e_1c.webp)
+
+**标记绘制**
+![feature](https://i0.hdslb.com/bfs/article/4b366c93734521343e91805ec49650a6700756870.png@1e_1c.webp)
+
+**展示与筛选**
+![display](https://i0.hdslb.com/bfs/article/86919e85f435f22bb027f68d4e6f9e52700756870.png@1e_1c.webp)
+
+## 2. 项目说明：
+
+### 2.1 目的：
+基于VUE框架模块化编程配合WebGIS开发
+
+### 2.2 主要功能
+
+1. 前端项目搭建
+2. 登录，路由鉴权
+3. 页面适配移动端
+4. 丰富的地图api，主要表现在矢量图层的绘制、保存与渲染
+
+### 2.3 主要技术
+
+> 地图框架：OpenLayers
+
+> 前端页面：Vue3 + ElementPlus + TailWind + Vue3OpenLayers + TypeScript
+
+> 数据请求及拦截：Axios
+
+> 仓库与路由：Pinia + VueRouter
+
