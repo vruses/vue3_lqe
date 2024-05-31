@@ -1,13 +1,27 @@
 <template>
   <div class="common-layout">
     <el-container>
-      <el-aside>
+      <el-button
+        type="default"
+        style="position: fixed; top: 50%; z-index: 1"
+        @click="drawer = true"
+        size="small"
+      >
+        >
+      </el-button>
+      <el-drawer
+        v-model="drawer"
+        title="I am the title"
+        :with-header="false"
+        :modal="false"
+      >
+        <span>条件筛选</span>
         <TreeFilter
           @updateRegions="handleUpdateRegions"
           @updateDegrees="handleUpdateDegrees"
           @updateCriterias="handleUpdateCriterias"
         ></TreeFilter>
-      </el-aside>
+      </el-drawer>
       <el-main>
         <ol-map
           :loadTilesWhileAnimating="true"
@@ -54,6 +68,8 @@ import TreeFilter from '@/components/layout/aside/TreeFilter.vue'
 const center = ref([112, 28])
 const projection = ref('EPSG:4326')
 const zoom = ref(10)
+
+const drawer = ref(false)
 
 //region,degree,criteria
 const regions = reactive([])
