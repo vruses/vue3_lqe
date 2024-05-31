@@ -48,7 +48,7 @@ export const constRoutes = [
         path: '/lq',
         name: 'lq',
         meta: {
-          title: '土地质量评价',
+          title: '地质评价',
           menu: 'landQuality',
           icon: 'MapLocation',
         },

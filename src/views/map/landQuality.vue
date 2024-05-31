@@ -23,11 +23,12 @@
       </fieldset>
     </form>
     <ol-map
+      id="ol-map"
       :loadTilesWhileAnimating="true"
       :loadTilesWhileInteracting="true"
       style="height: 100%"
     >
-      <ol-view ref="view" :center="center" :zoom="zoom" />
+      <ol-view ref="view" :center="transformCenter" :zoom="zoom" />
       <ol-zoom-control />
 
       <ol-tile-layer :zIndex="1000">
@@ -52,14 +53,26 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import { transform } from 'ol/proj'
 
 const zoom = ref(4)
-const center = ref([10000000, 5000000])
+const center = ref([116, 39])
+const projection_m = ref('EPSG:3857')
+const projection = ref('EPSG:4326')
+//将经纬度转为投影坐标
+const transformCenter = transform(
+  center.value,
+  projection.value,
+  projection_m.value,
+)
 const layerOpacity = ref(0.4)
 const layerVisible = ref(true)
 </script>
 
 <style lang="scss" scoped>
+#ol-map {
+  box-shadow: 1px 1px 12px 0 #7eaaa5;
+}
 fieldset {
   width: 350px;
   display: flex;
